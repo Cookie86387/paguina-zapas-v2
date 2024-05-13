@@ -1,0 +1,323 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: relative; /* Cambiamos a posición relativa para poder posicionar el submenu */
+    z-index: 3;
+    padding: 5px; /* Eliminar el relleno para eliminar cualquier espacio adicional */
+  }
+
+h1 {
+    margin: 10px;
+}
+
+h2{
+    padding: 10px;
+}
+
+h3{
+    color: black;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 6px;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline;
+    padding: 10px;
+  }
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #ff7f50;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -3px;
+    left: 0px;
+    background-color: #fff;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav ul li a:hover::after {
+    visibility: visible;
+    transform: scaleX(1.2);
+  }
+
+
+.titulo-principal {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+main {
+    text-align: center;
+    padding: 10px;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dropdown-content p {
+    margin: 10px 0;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ff7f50;
+    color: #333;
+}
+
+.producto {
+    background-color: #ddd;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin: 20px;
+    position: relative;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+}
+
+.producto .imagen-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.producto .producto-imagen {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.producto:hover .producto-imagen {
+    transform: translateY(-20px);
+}
+
+.producto .descripcion {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: bottom 0.3s ease;
+}
+
+.producto:hover .descripcion {
+    bottom: 0;
+}
+
+.tres-columnas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+#categorias-vendidas{
+    margin: 10px;
+}
+
+.categoria {
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.categoria:hover {
+    transform: scale(1.1);
+}
+
+.categoria h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(206, 25, 25, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.categoria-imagen {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos para la animación de desplazamiento */
+.catalogo {
+    overflow: hidden; /* Oculta el contenido que se desborde */
+    white-space: nowrap; /* Evita que los elementos se envuelvan */
+}
+.productos-container {
+    width: 100%; /* Asegura que el contenedor ocupe todo el espacio disponible */
+    overflow-x: hidden;
+}
+#mas-vendidos {
+    display: inline-block; /* Cambia a inline-block para que los productos aparezcan uno al lado del otro */
+    animation: slideInfinite 2000s linear; /* Animación de desplazamiento infinito */
+}
+.producto {
+    width: 250px; /* Ajusta el ancho de cada producto según tus necesidades */
+    margin-right: 20px; /* Espacio entre productos */
+}
+@keyframes slideInfinite {
+    0% {
+        transform: translateX(0); /* Comienza desde la posición inicial */
+    }
+    100% {
+        transform: translateX(-100%); /* Se desplaza completamente hacia la izquierda */
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.texto-inicio span {
+    padding-top: 2%;
+    text-align: justify;
+    text-align: center;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+    line-height: 1px;
+}
+
+@keyframes aparecer {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+.texto-inicio span:nth-child(1) { animation-delay: 0s; }
+.texto-inicio span:nth-child(2) { animation-delay: 0.25s; }
+.texto-inicio span:nth-child(3) { animation-delay: 0.5s; }
+.texto-inicio span:nth-child(4) { animation-delay: 0.75s; }
+.texto-inicio span:nth-child(5) { animation-delay: 1.0s; }
+.texto-inicio span:nth-child(6) { animation-delay: 1.25s; }
+.texto-inicio span:nth-child(7) { animation-delay: 1.5s; }
+.texto-inicio span:nth-child(8) { animation-delay: 1.75s; }
+.texto-inicio span:nth-child(9) { animation-delay: 2.0s; }
+.texto-inicio span:nth-child(10) { animation-delay: 2.25s; }
+.texto-inicio span:nth-child(11) { animation-delay: 2.5s; }
+.texto-inicio span:nth-child(12) { animation-delay: 2.75s; }
+.texto-inicio span:nth-child(13) { animation-delay: 3.0s; }
+.texto-inicio span:nth-child(14) { animation-delay: 3.25s; }
+.texto-inicio span:nth-child(15) { animation-delay: 3.5s; }
+
+.texto-inicio span {
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.contacto-footer p {
+    margin: 10px 0;
+}
+
+.contacto-footer p:first-child {
+    margin-top: 0;
+}
+
+.contacto-footer p:last-child {
+    margin-bottom: 0;
+}

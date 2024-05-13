@@ -1,0 +1,405 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  overflow-x: hidden; /* Evitar barra de desplazamiento horizontal */
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  position: relative; /* Cambiamos a posición relativa para poder posicionar el submenu */
+  z-index: 3;
+}
+
+header h1 a {
+  color: white;
+  display: block;
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  padding-top: 20px; /* Ajustamos el espacio superior del enlace */
+}
+
+/* Estilos del menú de navegación */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline;
+  margin: 0px;
+}
+
+nav ul li a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative; /* Agregamos posición relativa para el enlace */
+  top: -10px;
+}
+
+/* Estilos del menú de navegación */
+nav ul li a:hover {
+  color: #ff7f50; /* Cambiar el color del texto al pasar el mouse */
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 6px;
+  left: 0px;
+  background-color: #fff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  visibility: visible;
+  transform: scaleX(0.9);
+}
+
+/* Estilos del título principal */
+.titulo-principal {
+  margin-top: 20px; /* Mayor espacio superior */
+  font-size: 2.5rem; /* Tamaño del título aumentado */
+  color: #333; /* Color de texto más oscuro */
+  right: 20px;
+}
+
+/* Estilos del contenido principal */
+main {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Estilos del catálogo de productos */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+/* Estilos del menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px; /* Redondear los bordes */
+  transition: background-color 0.3s, color 0.3s; /* Añadir transición para el color de fondo y texto */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 10px;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out; /* Agregamos una transición de opacidad */
+  opacity: 0; /* Por defecto, el menú estará invisible */
+}
+
+.dropdown.active .dropdown-content {
+  display: block;
+  opacity: 1; /* Hacemos visible el menú al hacer clic en la marca */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s; /* Agregamos una transición para el color de fondo */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos del texto de los zapatos */
+.Shoestext {
+  color: #000;
+}
+
+/* Estilos de los productos */
+.producto {
+  background-color: rgba(220, 20, 60); /* Cambiar color de la parte de adentro de donde estan las imagenes*/
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+  transition: transform 0.3s ease;
+  display: inline-block; /* Cambiar a display en línea para evitar el comportamiento de bloque */
+  margin: -10px; /* Añadir un poco de margen entre los productos */
+  position: relative; /* Posicionamiento relativo para contener la descripción */
+  height: 100%;
+}
+
+.producto:hover {
+  transform: translateY(-10px); /* Ajustar la elevación al pasar el mouse */
+}
+
+.producto .imagen-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.producto .imagen-container p {
+  position: relative;
+  top: 20px;
+  transform: translateY(-10px);
+}
+
+.producto .producto-imagen {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Transición al pasar el mouse */
+}
+
+.producto:hover .producto-imagen {
+  transform: translateY(-20px); /* Mostrar la imagen agrandada al pasar el mouse */
+}
+
+.imagen-adicional {
+  display: flex;
+  justify-content: space-between; /* Espacio entre las imágenes */
+  margin-top: -50px; /* Espacio entre la imagen principal y las imágenes adicionales */
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 6px;
+}
+
+.imagen-adicional img {
+  width: 30%; /* Tamaño de las imágenes adicionales */
+  border: 2px rgba(220, 20, 60, 1) groove;
+  border-radius: 20px;
+}
+
+.imagen-adicional img:hover {
+  border: 2px rgba(220, 20, 60, 0.0) groove;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos de los botones */
+.boton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.boton-verde,
+.boton-rojo,
+.boton-whatsapp {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.1rem; /* Aumenta el tamaño de la fuente */
+  padding: 10px 30px; /* Ajusta el padding horizontal del botón de WhatsApp */
+  transition: background-color 0.3s, opacity 0.3s; /* Añadir transición a ambos botones */
+}
+
+.boton-verde:hover {
+  background-color: #3e8740;
+}
+
+.boton-rojo {
+  background-color: #f44336;
+  margin-left: 10px; /* Agregar un margen izquierdo para separar los botones */
+}
+
+.boton-rojo:hover {
+  background-color: #cb372c;
+}
+
+/* Estilos del carrito */
+.carrito-vacio {
+  display: none;
+}
+
+#carrito.carrito-lleno {
+  display: block;
+}
+
+#carrito {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-left: 20px; /* Alinea el carrito con el borde izquierdo */
+  margin-right: 20px; /* Alinea el carrito con el borde derecho */
+  position: relative; /* Permite posicionar el botón "Vaciar Carrito" de manera absoluta */
+}
+
+#carrito h2 {
+  margin-top: 0; /* Elimina el margen superior del título */
+}
+
+/* Estilos del botón "Quitar" */
+.boton-quitar {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+  transition: background-color 0.3s; /* Agregamos una transición al color de fondo */
+}
+
+.boton-quitar:hover {
+  background-color: #d32f2f; /* Cambiamos el color de fondo al pasar el mouse */
+}
+
+/* Estilos para diseño responsive */
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+  /* Ajustar el tamaño de fuente del encabezado principal */
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Ajustar el tamaño de fuente del título principal */
+  .titulo-principal {
+    font-size: 1.5rem;
+  }
+
+  /* Cambiar a una sola columna para los productos */
+  .catalogo {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Estilos para tablets y dispositivos de tamaño mediano */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* Ajustar el tamaño de fuente del encabezado principal */
+  header h1 {
+    font-size: 2rem;
+  }
+
+  /* Ajustar el tamaño de fuente del título principal */
+  .titulo-principal {
+    font-size: 2rem;
+  }
+}
+
+/* Estilos para dispositivos de pantalla grande */
+@media only screen and (min-width: 1025px) {
+  /* No se necesita ningún ajuste adicional */
+}
+
+/* Estilos para el submenu */
+.submenu {
+  display: none; /* Ocultar el submenu inicialmente */
+  position: absolute; /* Posición absoluta para poder posicionarlo debajo del header */
+  background-color: #ffffff;
+  width: 100vw; /* Ancho completo de la ventana */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1; /* Z-index alto para mantenerlo por encima de todo */
+  padding: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  opacity: 0; /* Configurar la opacidad inicialmente en 0 */
+  transform: translateY(-20px); /* Mover el submenu hacia arriba */
+  transition: opacity 0.5s, transform 0.5s; /* Agregar transiciones para opacidad y transformación */
+}
+
+
+.submenu a::after {
+  content: none; /* Eliminar el contenido del seudoelemento */
+}
+
+/* Mostrar el submenu al pasar el mouse sobre la marca */
+.marca {
+  position: relative; /* Asegurar que la marca sea un elemento de posicionamiento para el submenu */
+}
+
+.marca:hover .submenu {
+  opacity: 1; /* Cambiar la opacidad a 1 al pasar el mouse */
+  transform: translateY(0); /* Mover el submenu hacia abajo */
+  top: 105%; /* Posicionar justo debajo del header, ajustando el margen necesario */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.submenu a {
+  color: #333;
+}
+
+.submenu a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.submenu ul {
+  list-style-type: none;
+  line-height: 45px;
+  padding: 0px;
+}
+
+.footer {
+  margin-top: 30px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.footer-column h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px;
+}
+
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  background-color: #222;
+  text-align: center;
+  padding: 10px;
+}
